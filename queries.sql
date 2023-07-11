@@ -5,7 +5,9 @@ CREATE TABLE Usuario (
   email VARCHAR(100) NOT NULL,
   direccion VARCHAR(200),
   foto VARCHAR(200),
-  telefono VARCHAR(20)
+  telefono VARCHAR(20),
+  contraseña VARCHAR(20) NOT NULL
+    CHECK (contraseña REGEXP '^(?=.*[0-9])(?=.*[!@#$%^&*])')
 );
 
 -- Tabla Favoritos
@@ -19,5 +21,3 @@ CREATE TABLE Favoritos (
   url_imagen VARCHAR(200),
   url_evento VARCHAR(200)
 );
-
-INSERT INTO Usuario ()
