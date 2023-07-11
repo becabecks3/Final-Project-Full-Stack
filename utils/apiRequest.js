@@ -8,7 +8,6 @@ async function fetchEvents() {
       const url = `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=ES&size=100&apikey=${process.env.API_KEY}`;
       const response = await axios.get(url);
       const data = response.data;
-      
       const events = data._embedded.events;
       const objInfo = events
                 .map(event => {
@@ -23,9 +22,9 @@ async function fetchEvents() {
                         tickets: event.url,
                         distance: event.distance,
                         url: event.images[1].url,
-                        genre: event.classifications[0].genre.name
+                        genre: event.classifications[0].genre.name,
+                        // spotify: event._embedded.attractions[0].externalLinks.spotify[0].url
                     }
-                
                 });
         
       console.log(objInfo);
