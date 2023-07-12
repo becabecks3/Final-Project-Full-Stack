@@ -1,6 +1,6 @@
 const express = require('express');
 const eventsRouter = express.Router();
-const eventsController = require('../controller/eventsController')
+const eventsController = require('../controllers/eventsController')
 
 eventsRouter.get('/', eventsController.getHome);
 eventsRouter.get('/signup', eventsController.signUp);

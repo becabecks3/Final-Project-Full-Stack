@@ -1,5 +1,7 @@
 const express = require('express');
 
+require('./utils/db_pgsql')
+
 const morgan = require('./utils/morgan')
 const error404 = require('./middlewares/error404');
 
@@ -7,8 +9,8 @@ const error404 = require('./middlewares/error404');
 const app = express();
 const port = 3000;
 
-// const routes = require('./routes/routes');
-// const apiRoutes = require('./routes/apiRoutes');
+const eventRoutes = require('./routes/eventRoutes');
+const eventApiRoutes = require('./routes/eventApiRoutes');
 
 
 app.use(express.json());
@@ -17,10 +19,10 @@ app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 app.use(express.static('public'));
 
 //Endpoints Web
-//  app.use('/', routes )
+ app.use('/', eventRoutes );
 
 //Endpoints API
-// app.use('/api/', apiRoutes )
+app.use('/api/', eventApiRoutes );
 
 // Errores
 app.use(error404);

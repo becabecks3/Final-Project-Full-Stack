@@ -1,14 +1,22 @@
-// const express = require('express');
-// const eventsApiRouter = express.Router();
-// const eventsApiController = require('../controllers/eventsApiController');
+const express = require('express');
+const eventsApiRouter = express.Router();
+const eventsController = require('../controllers/eventsController');
+
+//Ruta /events
+eventsApiRouter.get('/events', eventsController.getEvents)
+
+//Rutas /details
+eventsApiRouter.get('/events/:name', eventsController.getDetails)
+
+//Ruta /search
+eventsApiRouter.get('/search', eventsController.getSearch)
+
+//Rutas /favoritos
+eventsApiRouter.get('/favorites', eventsController.getFavorites);
+eventsApiRouter.post('/favorites', eventsController.getFavorites);
+eventsApiRouter.delete('/favorites', eventsController.getFavorites);
 
 
-// //Rutas /favoritos
-// eventsApiRouter.get('/favorites', eventsApiController.getFavorites);
-// eventsApiRouter.post('/favorites', eventsApiController.getFavorites);
-// eventsApiRouter.delete('/favorites', eventsApiController.getFavorites);
-
-// //Ruta /search
-// eventsApiRouter.get('/search', eventsApiController.seacrhAll)
+module.exports = eventsApiRouter;
 
 
