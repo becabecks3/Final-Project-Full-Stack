@@ -17,6 +17,8 @@ CREATE TABLE Favoritos (
   artista VARCHAR(100) NOT NULL,
   fecha DATE,
   sala VARCHAR(100),
+  genero VARCHAR(100),
+  ubicacion VARCHAR(100),
   precio DECIMAL(10, 2),
   url_imagen VARCHAR(200),
   url_evento VARCHAR(200)

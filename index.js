@@ -1,4 +1,6 @@
 const express = require('express');
+const helmet = require('helmet');
+
 
 require('./utils/db_pgsql')
 
@@ -17,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 app.use(express.static('public'));
+app.use(helmet());
 
 //Endpoints Web
  app.use('/', eventRoutes );

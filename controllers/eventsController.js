@@ -1,58 +1,35 @@
+const modelQueries = require('../models/queries');
 
-const getHome = (req, res) => {
-    res.status(200).send("Has mandado un GET de la home")
+
+const getUser = async (req, res) => {
+    let user = await modelQueries.getUser(req.body);
+    res.status(200).json(user)
 }
 
-const signUp = (req, res) => {
-    res.status(200).send("Has mandado un GET de signUp")
+const getFavorites = async (req, res) => {
+    let fav = await modelQueries.getFavs(req.query.id_usuario);
+    res.status(200).json(fav); 
 }
 
-const login = (req, res) => {
-    res.status(200).send("Has mandado un GET de login")
+const postFavorites = async (req, res) => {
+    const newFav = req.body; 
+    const response = await modelQueries.createFav(newFav);
+    res.status(201).json({
+        "message": `Favorito añadido: ${newFav.artista}`
+    });
 }
-
-const favorites = (req, res) => {
-    res.status(200).send("Has mandado un GET de favoritos")
-}
-
-const profile = (req, res) => {
-    res.status(200).send("Has mandado un GET de profile")
-}
-
-const getEvents = (req, res) => {
-    res.status(200).send("Has mandado un GET a Events")
-}
-
-const getDetails = (req, res) => {
-    res.status(200).send("Has mandado un GET a Details")
-}
-
-const getSearch = (req, res) => {
-    res.status(200).send("Has mandado un GET de Search")
-}
-
-const getFavorites = (req, res) => {
-    res.status(200).send("Has mandado un GET de favoritos")
-}
-
-const postFavorites = (req, res) => {
-    res.status(200).send("Has mandado un POST a favoritos")
-}
-const deleteFavorites = (req, res) => {
-    res.status(200).send("Has mandado un DELETE A favoritos")
+const deleteFavorites = async (req, res) => {
+    const dataFav = req.body;
+    const response = await modelQueries.deleteFav(dataFav);
+    res.status(200).json({
+        "message": `Faorito borrado ${response.artista}`
+    });
 }
 
 
 module.exports = {
-    getHome,
-    signUp,
-    login,
-    favorites,
-    profile,
-    getEvents,
-    getDetails,
-    getSearch,
     getFavorites,
     postFavorites,
-    deleteFavorites
+    deleteFavorites,
+    getUser
 }

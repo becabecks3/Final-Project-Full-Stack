@@ -1,6 +1,24 @@
 const pool = require('../utils/db_pgsql');
 const queries = require('../queries/userQueries');
 
+//GET
+const getUser = async () => {
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.getUser)
+        result = data.rows
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
+
+
 //POST
 const createUser = async (newUser) => {
     const { nombre, email, contraseña, direccion, telefono, foto } = newUser;
@@ -132,10 +150,120 @@ const deleteUser = async (user) => {
 //     console.error('Error al eliminar el usuario:', err);
 // });
 
+
+//POST
+const createFav = async (newFav) => {
+    const {id_usuario, artista,  fecha,  sala, genero, ubicacion,   precio,  url_imagen, url_evento } = newFav;
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.createFav,[
+            id_usuario,
+             artista, 
+             fecha, 
+             sala,
+             genero,
+             ubicacion,
+             precio,
+             url_imagen,
+             url_evento])
+        result = data.rowCount
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
+
+// PRUEBA
+// const newFav = {
+//     id_usuario: 2,
+//     artista: 'Artista Ejemplo',
+//     fecha: '2023-07-12',
+//     sala: 'Sala Ejemplo',
+//     ubicacion: 'Ubicación Ejemplo',
+//     distancia: 'Distancia Ejemplo',
+//     genero: 'Rock',
+//     precio: 10.99,
+//     url_imagen: 'imagen_ejemplo.jpg',
+//     url_evento: 'https://ejemplo.com'
+//   };
+  
+//   createFav(newFav)
+//     .then((result) => {
+//       console.log(`Se creó un nuevo favorito. Filas afectadas: ${result}`);
+//     })
+//     .catch((err) => {
+//       console.error('Error al crear el favorito:', err);
+//     });
+
+//GET
+const getFavs = async () => {
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.getAllFavs)
+        result = data.rows
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
+//PRUEBA
+// getFavs()
+//   .then((result) => {
+//     console.log('Lista de favoritos:', result);
+//   })
+//   .catch((err) => {
+//     console.error('Error al obtener los favoritos:', err);
+//   });
+
+//DELETE
+const deleteFav = async (fav) => {
+    const { artista } = fav;
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.deleteFav,[artista])
+        result = data.rowCount
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
+
+
+//PRUEBA
+// const favToDelete = {
+//     artista: 'Artista Ejemplo'
+//   };
+  
+//   deleteFav(favToDelete)
+//     .then((result) => {
+//       console.log(`Se eliminó el favorito. Filas afectadas: ${result}`);
+//     })
+//     .catch((err) => {
+//       console.error('Error al eliminar el favorito:', err);
+//     });
+
 const user_queries = {
+    getUser,
     createUser,
     updateUser,
     deleteUser,
+    createFav,
+    getFavs,
+    deleteFav
 }
 
 module.exports = user_queries;
