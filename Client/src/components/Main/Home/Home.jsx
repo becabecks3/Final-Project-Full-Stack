@@ -1,5 +1,6 @@
-import List from './List/List';
-import Card from './List/Card/Card'
+import Links from './Links/Links';
+import Cards from './Cards/Cards';
+
 const Home = () => {
   return (
     <>
@@ -10,8 +11,8 @@ const Home = () => {
 
     </section>
     <section>
-      <List />
-      <Card />
+      <Links />
+      <Cards />
     </section>
       
     </>

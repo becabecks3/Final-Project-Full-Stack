@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import TicketMaster from "./TicketMaster";
+import Map from "./Map";
 
-describe("TicketMaster", () => {
+describe("Map", () => {
   test("matches snapshot", () => {
-    const wrapper = shallow(<TicketMaster />);
+    const wrapper = shallow(<Map />);
     expect(wrapper).toMatchSnapshot();
   });
 });
