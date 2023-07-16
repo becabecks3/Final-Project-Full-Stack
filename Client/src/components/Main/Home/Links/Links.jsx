@@ -1,8 +1,7 @@
-// Links.jsx
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { EventContext } from "../../../../context/eventContext";
-import { encode } from "ngeohash";
+
 
 const Links = () => {
   const { setEventList } = useContext(EventContext);
@@ -14,7 +13,7 @@ const Links = () => {
       const response = await fetch(url);
       const data = await response.json();
 
-      const eventData = data._embedded.events.map((event) => ({
+      let eventData = data._embedded.events.map((event) => ({
         name: event.name,
         dateTime: event.dates.start.localDate,
         localTime: event.dates.start.localTime,
@@ -26,13 +25,12 @@ const Links = () => {
       }));
 
       setEventList(eventData);
-      console.log(eventData);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleFetchData = async (filter) => {
+  const handleFetchData = async (filter, geoPoint = null) => {
     const params = new URLSearchParams();
     params.set("countryCode", "ES");
     params.set("size", "200");
@@ -47,23 +45,7 @@ const Links = () => {
     } else if (filter === "Bilbao") {
       params.set("city", "Bilbao");
     } else if (filter === "Cerca de mi") {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            const geoPoint = encode(latitude, longitude, 9);
-            params.set("geoPoint", geoPoint);
-            fetchDataFromAPI(params);
-          },
-          (error) => {
-            console.log("Error obtaining geolocation:", error);
-          }
-        );
-      } else {
-        console.log("Geolocation is not supported by this browser.");
-      }
-      return;
+      params.set("city", "Madrid");
     }
 
     fetchDataFromAPI(params);
@@ -91,6 +73,9 @@ const Links = () => {
 };
 
 export default Links;
+
+
+
 
 
 

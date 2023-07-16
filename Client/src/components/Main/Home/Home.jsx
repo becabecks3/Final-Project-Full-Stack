@@ -1,7 +1,7 @@
 import Links from './Links/Links';
 import Cards from './Cards/Cards';
 
-const Home = () => {
+const Home = ({position}) => {
   return (
     <>
     <section className="home-title">
@@ -12,7 +12,7 @@ const Home = () => {
     </section>
     <section>
       <Links />
-      <Cards />
+      
     </section>
       
     </>
