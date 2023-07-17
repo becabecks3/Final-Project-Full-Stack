@@ -1,0 +1,15 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+body {
+    background-image: $background-image;
+    font-family: $anton, sans-serif, serif;
+}
+
+.home-title{
+    font-size: 50px;
+    height: 500px;
+    text-transform: uppercase;
+    font-weight: 650;
+    color: #1BE1A2;
+}

@@ -13,6 +13,9 @@ const Main = () => {
         <Route path='/cards/Barcelona' element={<Cards />} />
         <Route path='/cards/Bilbao' element={<Cards />} />
         <Route path='/cards/Festivales' element={<Cards />} />
+        <Route path='/cards/Rock' element={<Cards />} />
+        <Route path='/cards/Electronica' element={<Cards />} />
+        <Route path='/cards/Pop' element={<Cards />} />
         <Route path='/map' element={<Map />} />
         <Route path='/perfil' element={<Favorites />} /> 
       </Routes>

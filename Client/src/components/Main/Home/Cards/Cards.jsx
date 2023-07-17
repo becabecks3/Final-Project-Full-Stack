@@ -58,32 +58,34 @@ const Cards = ({ filter }) => {
   });
 
   return (
-    <>
-      <div>
-        <label htmlFor="sort-type">Sort by:</label>
-        <select id="sort-type" value={sortType} onChange={handleSortChange}>
-          <option value="">None</option>
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </div>
-      {sortedEventList.map((event) => (
-        <div key={uuidv4()}>
-          <h3>{event.name}</h3>
-          <img src={event.url} alt={event.name} />
-          <p>Date: {event.dateTime}</p>
-          <p>Time: {event.localTime}</p>
-          <p>Venue: {event.venueName}</p>
-          <p>Location: {event.address}</p>
-          <p>Tickets: Price not available, please check down here:</p>
-          <Link to={event.tickets}>{event.tickets}</Link>
-          <p>Genre: {event.genre}</p>
-          <button onClick={() => addToFavorites(event)} disabled={isAddedToFavorites}>
-            {isAddedToFavorites ? 'Added' : 'Add to Favorites'}
-          </button>
-        </div>
-      ))}
-    </>
+    
+      <main>
+        <section>
+          <label htmlFor="sort-type">Sort by:</label>
+          <select id="sort-type" value={sortType} onChange={handleSortChange}>
+            <option value="">None</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </section>
+        {sortedEventList.map((event) => (
+          <div key={uuidv4()}>
+            <h3>{event.name}</h3>
+            <img src={event.url} alt={event.name} />
+            <p>Date: {event.dateTime}</p>
+            <p>Time: {event.localTime}</p>
+            <p>Venue: {event.venueName}</p>
+            <p>Location: {event.address}</p>
+            <p>Tickets: Price not available, please check down here:</p>
+            <Link to={event.tickets}>{event.tickets}</Link>
+            <p>Genre: {event.genre}</p>
+            <button onClick={() => addToFavorites(event)} disabled={isAddedToFavorites}>
+              {isAddedToFavorites ? 'Added' : 'Add to Favorites'}
+            </button>
+          </div>
+        ))}
+      </main>
+    
   );
 };
 

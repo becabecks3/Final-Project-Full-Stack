@@ -24,20 +24,22 @@ const Favorites = () => {
   }, []); 
 
   return (
-    <div>
-      <h1>Favorites</h1>
-      {favorites.map((favorite) => (
-        <div key={uuidv4}>
-          <p>{favorites.url_imagen}</p>
-          <h2>{favorite.artista}</h2>
-          <p>Fecha: {favorite.fecha}</p>
-          <p>Sala: {favorite.sala}</p>
-          <p>Precio: {favorite.precio}</p>
-          <p>Género: {favorite.genero}</p>
-          <p>Tickets: {favorite.url_evento}</p>
-        </div>
-      ))}
-    </div>
+    <body>
+      <main>
+          <h1>Favorites</h1>
+          {favorites.map((favorite) => (
+            <div key={uuidv4}>
+              <p>{favorites.url_imagen}</p>
+              <h2>{favorite.artista}</h2>
+              <p>Fecha: {favorite.fecha}</p>
+              <p>Sala: {favorite.sala}</p>
+              <p>Precio: {favorite.precio}</p>
+              <p>Género: {favorite.genero}</p>
+              <p>Tickets: {favorite.url_evento}</p>
+            </div>
+          ))}
+      </main>
+    </body>
   );
 };
 

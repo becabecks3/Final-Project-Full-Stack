@@ -8,3 +8,15 @@
 border-radius: $radius;
 } 
 
+@mixin space-between-element{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 10px 15px;
+}
+
+@mixin flex-end {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}

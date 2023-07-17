@@ -24,13 +24,14 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className="nav-container">
+      <img src="../../../src/assets/ondas.png" className="logo"></img>
       <ul>
         <li>
           {userName.length && userName ? `Hola, ${userName}` : "Inicio de sesión"}
         </li>
-        <li><Link to='/perfil'>Perfil</Link></li>
-      </ul>
+        <li><Link to='/perfil'><img src="../../../src/assets/user.png" className="user-icon"></img></Link></li>
+    </ul>
     </nav>
   );
 };

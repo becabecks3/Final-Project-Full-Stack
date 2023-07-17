@@ -1,0 +1,35 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    font-size: 20px;
+    padding: 0px 5px;
+    font-size: 15px;
+}
+
+.nav-container ul {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-container li {
+    margin: 10px;
+    color: $turqoise;
+}
+.user-icon {
+    height: 35px;
+    width: 35px;
+}
+
+.logo{
+    height: 85px;
+    width: 85px;
+}

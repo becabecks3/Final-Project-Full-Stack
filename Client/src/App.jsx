@@ -22,13 +22,15 @@ function App() {
 
   return (
     <>
+    
       <BrowserRouter>
       <EventContext.Provider value={eventData} >
         <Header />
         <Main />
       </EventContext.Provider>
       <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
+    
     </>
   )
 }
