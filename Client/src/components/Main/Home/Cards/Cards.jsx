@@ -7,6 +7,7 @@ const Cards = ({ filter }) => {
   const { eventList } = useContext(EventContext);
 
   const [isAddedToFavorites, setIsAddedToFavorites] = useState(false);
+  const [sortType, setSortType] = useState('');
 
   const addToFavorites = async (event) => {
     const favoriteInfo = {
@@ -41,9 +42,32 @@ const Cards = ({ filter }) => {
     }
   };
 
+  
+  const handleSortChange = (event) => {
+    setSortType(event.target.value);
+  };
+
+  const sortedEventList = eventList.sort((a, b) => {
+    if (sortType === 'asc') {
+      return a.name.localeCompare(b.name);
+    } else if (sortType === 'desc') {
+      return b.name.localeCompare(a.name);
+    } else {
+      return 0;
+    }
+  });
+
   return (
     <>
-      {eventList.map((event) => (
+      <div>
+        <label htmlFor="sort-type">Sort by:</label>
+        <select id="sort-type" value={sortType} onChange={handleSortChange}>
+          <option value="">None</option>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
+      {sortedEventList.map((event) => (
         <div key={uuidv4()}>
           <h3>{event.name}</h3>
           <img src={event.url} alt={event.name} />
@@ -52,7 +76,7 @@ const Cards = ({ filter }) => {
           <p>Venue: {event.venueName}</p>
           <p>Location: {event.address}</p>
           <p>Tickets: Price not available, please check down here:</p>
-          <Link> {event.tickets}</Link>
+          <Link to={event.tickets}>{event.tickets}</Link>
           <p>Genre: {event.genre}</p>
           <button onClick={() => addToFavorites(event)} disabled={isAddedToFavorites}>
             {isAddedToFavorites ? 'Added' : 'Add to Favorites'}
