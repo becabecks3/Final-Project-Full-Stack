@@ -60,27 +60,27 @@ const Cards = ({ filter }) => {
   return (
     
       <main>
-        <section>
-          <label htmlFor="sort-type">Sort by:</label>
+        <section className='sort-container'>
+          <label htmlFor="sort-type">Ordenar</label>
           <select id="sort-type" value={sortType} onChange={handleSortChange}>
-            <option value="">None</option>
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+            <option value="">Ninguno</option>
+            <option value="asc">Ascendente</option>
+            <option value="desc">Descendente</option>
           </select>
         </section>
         {sortedEventList.map((event) => (
-          <div key={uuidv4()}>
+          <div key={uuidv4()} className='event-container'>
             <h3>{event.name}</h3>
-            <img src={event.url} alt={event.name} />
-            <p>Date: {event.dateTime}</p>
-            <p>Time: {event.localTime}</p>
-            <p>Venue: {event.venueName}</p>
-            <p>Location: {event.address}</p>
-            <p>Tickets: Price not available, please check down here:</p>
-            <Link to={event.tickets}>{event.tickets}</Link>
-            <p>Genre: {event.genre}</p>
-            <button onClick={() => addToFavorites(event)} disabled={isAddedToFavorites}>
-              {isAddedToFavorites ? 'Added' : 'Add to Favorites'}
+            <img className='event-img' src={event.url} alt={event.name} />
+            <p><span className='event-title'>Fecha</span> {event.dateTime}</p>
+            <p><span className='event-title'>Hora</span> {event.localTime}</p>
+            <p><span className='event-title'>Sala</span> {event.venueName}</p>
+            <p><span className='event-title'>Dirección</span> {event.address}</p>
+            <p><span className='event-title'>Género</span> {event.genre}</p>
+            <p><span className='event-title'>Precio</span><Link to={event.tickets}>Check here</Link></p>
+            
+            <button className='event-button' onClick={() => addToFavorites(event)} disabled={isAddedToFavorites}>
+              {isAddedToFavorites ? 'Añadido' : 'Favoritos'}
             </button>
           </div>
         ))}

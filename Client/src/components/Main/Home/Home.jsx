@@ -5,7 +5,7 @@ const Home = () => {
     <main>
       <section className="home-title">
         <h2>Feel it</h2>
-        <h2>Sign it</h2>
+        <h2>Sing it</h2>
         <h2>Live it</h2>
 
       </section>

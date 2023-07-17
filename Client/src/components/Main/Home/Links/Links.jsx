@@ -60,55 +60,55 @@ const Links = () => {
 
   const itemData = [
     {
-      img: 'https://www.renfe.com/content/dam/renfe/es/Viajeros/Secciones/Experiencias/festivales/banner-festivales.jpg',
+      img: 'https://p1.pxfuel.com/preview/637/334/470/band-music-live-music-concert-crowd-crowd-surfing.jpg',
       title: 'Festivales',
       rows: 1,
       cols: 4,
       link: "/cards/Festivales"
     },
     {
-      img: 'https://media.timeout.com/images/101206597/image.jpg',
+      img: 'https://concordmusichall.com/wp-content/uploads/2016/09/DSC_3711.jpg',
       title: 'Madrid',
       rows: 2,
       cols: 2,
       link: "/cards/Madrid"
     },
     {
-      img: 'https://media.cntraveller.com/photos/611bed73a954a4e571f6f36c/16:9/w_2580,c_limit/sofar-sounds-dec18-jane-jimenez-for-sofar-sounds.jpg',
+      img: 'https://photos.leoweekly.com/wp-content/uploads/2022/05/006-006-120621-CB-KnockedLoose.jpg',
       title: 'Barcelona',
       cols: 2,
       link: "/cards/Barcelona"
     },
     {
-      img: 'https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/springfield/Concerts_Live_Music_d30b0459-d42e-424b-8ccf-31419a06694d.jpg',
+      img: 'https://i.pinimg.com/originals/f3/19/f7/f319f70bfb2916edeaa1eb25f00da0dc.jpg',
       title: 'Bilbao',
       cols: 2,
       rows: 3,
       link: "/cards/Bilbao"
     },
     {
-      img: 'https://blogs.iadb.org/ciudades-sostenibles/wp-content/uploads/sites/17/2016/04/music-cities.jpg',
+      img: 'https://favim.com/pd/s1/orig/3/black-and-white-concert-crowd-show-Favim.com-153502.jpg',
       title: 'Cerca de mi',
       cols: 2,
       rows: 1,
       link: "/map"
     },
     {
-      img: 'https://www.elcorteingles.es/entradas/blog/wp-content/uploads/2023/01/pop.jpg',
+      img: 'https://images.squarespace-cdn.com/content/v1/5c479fe8b10598270faa81bb/1568633619106-X8KO3JV6INQ4QNA60X1O/NYE+on+the+Hill+Day+1-334.jpg',
       title: 'Pop',
       cols: 2,
       rows: 2,
       link: "/cards/Pop"
     },
     {
-      img: 'https://www.atrapalo.com/houdinis/wp-content/uploads/2019/03/music1.png',
+      img: 'https://img1.wsimg.com/isteam/ip/27b6da6d-d679-4632-a278-ad6ab20adcbc/exodus-musichallofwilliamsburg-08.jpg',
       title: 'Rock',
       cols: 2,
       rows: 3,
       link: "/cards/Rock"
     },
     {
-      img: 'https://www.eltiempo.com/uploads/2022/03/05/62238187ed16e.jpeg',
+      img: 'https://i.pinimg.com/originals/f6/d2/99/f6d2992c6a49b51171c57efd5d131b9f.jpg',
       title: 'Electronica',
       cols: 2,
       rows: 2,
@@ -118,7 +118,7 @@ const Links = () => {
 
   return (
     <>
-      <section>
+      <section className="links-container">
         <ImageList
           sx={{ width: '100%', height: 896 }}
           variant="quilted"
@@ -140,7 +140,7 @@ const Links = () => {
                   flexDirection: "column",
                   alignItems: "center",
                   textDecoration: "none",
-                  color: "white",
+                  color: "#1BE1A2",
                   textAlign: "center",
                 }}
               >
