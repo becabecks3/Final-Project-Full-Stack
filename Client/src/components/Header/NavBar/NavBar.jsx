@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    // const getName = async () => {
-    //   const response = await fetch("/api/user").then(res => console.log(res.json()))
-    //   console.log(response);
-    // }
-    // getName();
     const fetchUserName = async () => {
       try {
        
@@ -33,6 +29,7 @@ const NavBar = () => {
         <li>
           {userName.length && userName ? `Hola, ${userName}` : "Inicio de sesión"}
         </li>
+        <li><Link to='/perfil'>Perfil</Link></li>
       </ul>
     </nav>
   );

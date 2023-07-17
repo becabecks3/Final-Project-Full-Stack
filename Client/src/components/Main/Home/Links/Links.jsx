@@ -19,11 +19,13 @@ const Links = () => {
         localTime: event.dates.start.localTime,
         venueName: event._embedded.venues[0].name,
         venueLocation: event._embedded.venues[0].location,
+        address: event._embedded.venues[0].address.line1 ,
+        // price: event.priceRanges[1].min,
         tickets: event.url,
         url: event.images[1].url,
         genre: event.classifications[0].genre.name,
       }));
-
+      console.log(eventData)
       setEventList(eventData);
     } catch (error) {
       console.log(error);
@@ -37,7 +39,7 @@ const Links = () => {
     params.set("apikey", import.meta.env.VITE_API_KEY);
 
     if (filter === "Festivales") {
-      params.set("keyword", "Festival");
+      params.set("classificationName", "Festival");
     } else if (filter === "Madrid") {
       params.set("city", "Madrid");
     } else if (filter === "Barcelona") {

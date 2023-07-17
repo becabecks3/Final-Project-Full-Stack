@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from './Home/Home';
 import Cards from "./Home/Cards/Cards";
 import Map from './Home/Map/Map'
+import Favorites from "./Home/Favorites/Favorites";
 
 const Main = () => {
   return (
@@ -13,7 +14,7 @@ const Main = () => {
         <Route path='/cards/Bilbao' element={<Cards />} />
         <Route path='/cards/Festivales' element={<Cards />} />
         <Route path='/map' element={<Map />} />
-        {/* <Route path='/perfil' element={<Profile />} /> */}
+        <Route path='/perfil' element={<Favorites />} /> 
       </Routes>
     </>
   )
