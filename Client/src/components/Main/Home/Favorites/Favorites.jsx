@@ -28,14 +28,15 @@ const Favorites = () => {
       <main>
           <h1>Favorites</h1>
           {favorites.map((favorite) => (
-            <div key={uuidv4}>
-              <p>{favorites.url_imagen}</p>
-              <h2>{favorite.artista}</h2>
-              <p>Fecha: {favorite.fecha}</p>
-              <p>Sala: {favorite.sala}</p>
-              <p>Precio: {favorite.precio}</p>
-              <p>Género: {favorite.genero}</p>
-              <p>Tickets: {favorite.url_evento}</p>
+            <div key={uuidv4} className='event-container'>
+               <h3>{favorite.name}</h3>
+            <img className='event-img' src={favorite.url} alt={favorite.name} />
+            <p><span className='event-title'>Fecha</span> {favorite.dateTime}</p>
+            <p><span className='event-title'>Hora</span> {favorite.localTime}</p>
+            <p><span className='event-title'>Sala</span> {favorite.venueName}</p>
+            <p><span className='event-title'>Dirección</span> {favorite.address}</p>
+            <p><span className='event-title'>Género</span> {favorite.genre}</p>
+            <p><span className='event-title'>Precio</span><Link to={favorite.tickets}>Check here</Link></p>
             </div>
           ))}
       </main>

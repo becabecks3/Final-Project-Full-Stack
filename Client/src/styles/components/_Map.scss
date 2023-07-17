@@ -1,0 +1,50 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+
+.leaflet-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 650px;
+    width: 390px;
+    font-family: $anton;
+}
+
+.popupCustom,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: white;
+    color: $turqoise ;
+    font-family: $anton;
+    font-size: 20px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    border: 1px solid black;
+}
+
+.popup-container a{
+    text-decoration: none;
+    color: $turqoise;
+    font-family: $anton;
+}
+
+.popup-container h3{
+    text-transform: uppercase;
+    font-family: $anton;
+}
+.popup-container p{
+    color: black;
+    font-family: $anton;
+}
+
+.pop-title{
+    font-weight: bold;
+    font-size: 25px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    font-family: $anton;
+}

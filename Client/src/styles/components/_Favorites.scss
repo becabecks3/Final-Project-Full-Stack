@@ -1,0 +1,64 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+
+.event-container {
+    border: 3px solid black;
+    margin: 35px 30px;
+    padding: 15px 25px;
+    text-align: left; 
+      
+}
+.event-container h3 {
+    color: $turqoise;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.event-container p {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.event-container a {
+    color: $turqoise;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.event-button {
+    height: 38px;
+    width: 250px;
+    margin-top: 15px;
+    color: $turqoise;
+    background-color: $white;
+    border: 2px solid black;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+
+.event-button:active {
+    color: $turqoise;
+    background-color: $black;
+}
+
+.event-img {
+    @include center-element;
+    height: 150px;
+    width: 265px;
+    filter: grayscale(100%);
+}  
+
+.event-title{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    
+}

@@ -62,7 +62,7 @@ const Links = () => {
     {
       img: 'https://p1.pxfuel.com/preview/637/334/470/band-music-live-music-concert-crowd-crowd-surfing.jpg',
       title: 'Festivales',
-      rows: 1,
+      rows: 2,
       cols: 4,
       link: "/cards/Festivales"
     },

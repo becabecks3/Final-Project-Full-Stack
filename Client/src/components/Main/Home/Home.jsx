@@ -3,15 +3,8 @@ import Links from './Links/Links';
 const Home = () => {
   return (
     <main>
-      <section className="home-title">
-        <h2>Feel it</h2>
-        <h2>Sing it</h2>
-        <h2>Live it</h2>
-
-      </section>
-      <section>
+      <section className='links-container'>
         <Links />
-        
       </section>
       
     </main>

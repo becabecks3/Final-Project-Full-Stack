@@ -2,14 +2,7 @@
 @import '../utils/mixins.scss';
 
 body {
-    background-image: $background-image;
+    background-image: url('../../assets/show2.jpg');
     font-family: $anton, sans-serif, serif;
-}
-
-.home-title{
-    font-size: 50px;
-    height: 500px;
-    text-transform: uppercase;
-    font-weight: 650;
-    color: #1BE1A2;
+    // background-color: black;
 }

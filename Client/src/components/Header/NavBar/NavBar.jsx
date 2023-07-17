@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack'
 
 const NavBar = () => {
   const [userName, setUserName] = useState("");
@@ -30,7 +32,7 @@ const NavBar = () => {
         <li>
           {userName.length && userName ? `Hola, ${userName}` : "Inicio de sesión"}
         </li>
-        <li><Link to='/perfil'><img src="../../../src/assets/user.png" className="user-icon"></img></Link></li>
+        <li><Link to='/perfil'><Avatar alt="Remy Sharp" className="user-icon" src="../../../src/assets/foto.png" /></Link></li>
     </ul>
     </nav>
   );

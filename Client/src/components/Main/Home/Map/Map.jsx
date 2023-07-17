@@ -6,6 +6,7 @@ import { EventContext } from "../../../../context/eventContext";
 import { v4 as uuidv4 } from "uuid";
 import "./Map.css";
 import "leaflet/dist/leaflet.css";
+import { Link } from "react-router-dom";
 
 const Map = () => {
   const { eventList, setEventList } = useContext(EventContext);
@@ -59,7 +60,6 @@ const Map = () => {
     
    
   return (
-    <body>
       <main>
         <section>
           <section className="map">
@@ -88,11 +88,12 @@ const Map = () => {
                       onClick={() => handleMarkerClick()}
                     >
                       <Popup>
-                        <section>
+                        <section className="popup-container">
                           <h3>{event.name}</h3>
-                          <p>Venue: {event.venueName}</p>
-                          <p>Location: {event.venueName}</p>
-                          <p>Time: {event.dateTime}</p>
+                          <p><span className="pop-title">Sala</span> {event.venueName}</p>
+                          <p><span className="pop-title">Dirección</span> {event.address}</p>
+                          <p><span className="pop-title">Fecha</span> {event.dateTime}</p>
+                          <Link to={event.url}><span className="pop-title">Tickets</span> </Link>
                         </section>
                       </Popup>
                     </Marker>
@@ -114,7 +115,7 @@ const Map = () => {
           </section>
         </section>
       </main>
-    </body>
+   
   );
    
 };
