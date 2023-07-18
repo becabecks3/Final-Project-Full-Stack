@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -28,7 +29,7 @@ const Favorites = () => {
       <main>
           <h1>Favorites</h1>
           {favorites.map((favorite) => (
-            <div key={uuidv4} className='event-container'>
+            <div key={uuidv4()} className='event-container'>
                <h3>{favorite.name}</h3>
             <img className='event-img' src={favorite.url} alt={favorite.name} />
             <p><span className='event-title'>Fecha</span> {favorite.dateTime}</p>
