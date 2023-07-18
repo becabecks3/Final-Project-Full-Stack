@@ -14,7 +14,7 @@ CREATE TABLE Usuario (
 CREATE TABLE Favoritos (
   id_favorito SERIAL PRIMARY KEY,
   id_usuario INTEGER REFERENCES Usuario(id_usuario),
-  artista VARCHAR(100) NOT NULL,
+  artista VARCHAR(100),
   fecha DATE,
   sala VARCHAR(100),
   genero VARCHAR(100),
