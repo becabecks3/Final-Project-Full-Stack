@@ -13,7 +13,11 @@ Si quieres trabajar sobre este proyecto ejecuta
 - Código limpio
 - Mobile First
 ## Screenshots
+![](/Client/src/assets/screenshots/home.png)
+![](/Client/src/assets/screenshots/evento.png)
+![](/Client/src/assets/screenshots/mapa.png)
 ## Links
+
 ## Fase 2
 - Autenticación
 - Registro de varios usuarios
